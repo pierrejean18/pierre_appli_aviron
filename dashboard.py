@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 import math
-import plotly.express as px
 import pandas as pd
 
 # Utilisation de HTML et CSS pour placer le logo en haut à gauche
@@ -31,7 +30,7 @@ st.sidebar.image("images/tours_logo.svg", use_column_width=True)  # Assurez-vous
 
 # Navigation des pages
 st.sidebar.title("Navigation")
-pages = st.sidebar.radio("Aller à", ["Accueil :crown: ", "Ratio Pelle Aviron 	:t-rex: ", "Calcul Pourcentage :medal: ", "Convertisseur Watt/500", "Es-tu Fort? :hatching_chick: ","radar chart"])
+pages = st.sidebar.radio("Aller à", ["Accueil :crown: ", "Ratio Pelle Aviron 	:t-rex: ", "Calcul Pourcentage :medal: ", "Convertisseur Watt/500", "Es-tu Fort? :hatching_chick: "])
 
 if pages == "Accueil :crown: ":
     # Page d'accueil
@@ -294,13 +293,3 @@ elif pages == "Es-tu Fort? :hatching_chick: ":
 
     st.write(f"Avec un temps de {minutestesterg} minutes, {secondstesterg} secondes et {tenthstesterg} dixièmes pour parcourir 500 mètres, la puissance calculée est de {wattsrpp} watts en moyenne.")
     st.title(f"Ton rapport poids puissance est de {rppking:.2f} RPP")
-
-elif pages == "radar chart":
-    st.title("Outils pour coach d\'aviron")
-    st.header("votre radar chart")
-    df = pd.DataFrame(dict(
-        r=[1, 5, 2, 2, 3,4],
-        theta=['100 m','500 m','2000 m',
-            '5000m', '21 097 m','42 195 m']))
-    fig = px.line_polar(df, r='r', theta='theta', line_close=True)
-    st.plotly_chart(fig)
