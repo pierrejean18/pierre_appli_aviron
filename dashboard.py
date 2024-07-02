@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 import math
-import plotly as plt 
 import pandas as pd
 
 # Utilisation de HTML et CSS pour placer le logo en haut à gauche
